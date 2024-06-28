@@ -10,11 +10,11 @@ def judge(player_num,answer_number):
     elif player_num == answer_number:
         return 'correct'
 
-
 last_count = 0
 min_count = 1000
 player_choice = ''
 print('-----------Up Down 게임 입니다-----------')
+
 while True:
     answer_number = random.randint(1, 100)
     count = 0
@@ -34,13 +34,19 @@ while True:
     else:
         print(f'최고 기록 : {min_count}')
     last_count = count
-    print('다시 하시겠습니까? (Y/N)', end=' ')
-    player_choice = input()
+    player_choice = input('다시 하시겠습니까? (Y/N) ')
     player_choice = player_choice.upper()
+    if player_choice != 'Y' and player_choice != 'N':
+        while True:
+            player_choice = input('Y나 N만 입력해주세요. (Y/N) ')
+            player_choice = player_choice.upper()
+            if player_choice == 'Y' or player_choice == 'N':
+                break
     if player_choice == 'N':
         break
     elif player_choice == 'Y':
         continue
+
 
 print("게임을 종료합니다.")
 
