@@ -10,7 +10,7 @@ def judge(player,answer):
     elif player == answer:
         return 'correct'
 
-def game_conti():
+def game_continue():
     choice = input('다시 하시겠습니까? (Y/N) ')
     choice = choice.upper()
     if choice != 'Y' and choice != 'N':
@@ -48,14 +48,10 @@ while True:
     else:
         print(f'최고 기록 : {min_count}')
     last_count = count
-    player_choice = game_conti()
+    player_choice = game_continue()
     if player_choice == 0:
         break
     elif player_choice == 1:
         continue
 
 print("게임을 종료합니다.")
-
-
-
-
