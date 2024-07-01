@@ -1,6 +1,6 @@
 from random import randint
 
-def result(num1, num2):
+def result(num1, num2): #플레이어 승패 결정 함수
     if (num1 == 0 and num2 == 2) | (num1 == 1 and num2 == 0) | (num1 == 2 and num2 == 1):
         return 1
     elif (num1 == 0 and num2 == 1) | (num1 == 1 and num2 == 2) | (num1 == 2 and num2 == 0):
@@ -8,7 +8,7 @@ def result(num1, num2):
     elif num1 == num2:
         return 0
 
-def game_continue():
+def game_continue(): #게임을 계속할건지 물어보는 함수
     choice = input('다시 하시겠습니까? (Y/N) ')
     choice = choice.upper()
     if choice != 'Y' and choice != 'N':
@@ -25,7 +25,7 @@ def game_continue():
 win_count = 0
 lose_count = 0
 draw_count = 0
-
+print('-----------가위바위보 게임 입니다-----------')
 while True:
     while True: #플레이어 가위바위보 선택
         player = input("가위 바위 보를 선택하세요 : ")
@@ -41,10 +41,10 @@ while True:
         else:
             print("가위, 바위, 보 중에서 입력해야 합니다")
     computer = randint(0, 2) # 주먹은 0, 보는 1, 가위는 2
-    if result (player, computer) == 1:
+    if result(player, computer) == 1:
         win_count += 1
         print("플레이어 WIN")
-    elif result (player, computer) == 2:
+    elif result(player, computer) == 2:
         lose_count += 1
         print("컴퓨터 WIN")
     else:

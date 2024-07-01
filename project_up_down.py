@@ -1,6 +1,6 @@
 import random
 
-def judge(player,answer):
+def judge(player,answer): # 숫자를 비교하는 함수
     if player > answer:
         print('Down')
         return 'Down'
@@ -10,7 +10,7 @@ def judge(player,answer):
     elif player == answer:
         return 'correct'
 
-def game_continue():
+def game_continue(): #게임을 계속할건지 물어보는 함수
     choice = input('다시 하시겠습니까? (Y/N) ')
     choice = choice.upper()
     if choice != 'Y' and choice != 'N':
