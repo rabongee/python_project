@@ -6,7 +6,7 @@
 파일명은 그대로 project_up_down과 rock, paper, scissors의 줄임말인 project_RPS입니다.
 
 ## 개발환경
-Version : Python 3.8.6
+Version : Python 3.10.11
 
 ## 프로젝트 기능
 * **Up Down 게임**
