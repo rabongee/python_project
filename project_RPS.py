@@ -1,18 +1,12 @@
-from random import randint
-from enum import Enum
+from random import choice
 
-class WinOrLose(Enum): #가위바위보도 0,1,2라 가위바위보와 구별하기 위해 만든 열거형 타입
-    Draw = 0 #경우의 수가 3가지라 else를 쓰면 안 만들어도 되지만 혼동을 주지 않기 위해 만듬
-    Win = 1
-    Lose = 2
-
-def player_vs_computer(num1, num2): #플레이어 승패 결정 함수
-    if (num1 == 0 and num2 == 2) | (num1 == 1 and num2 == 0) | (num1 == 2 and num2 == 1):
-        return WinOrLose.Win.value
-    elif (num1 == 0 and num2 == 1) | (num1 == 1 and num2 == 2) | (num1 == 2 and num2 == 0):
-        return WinOrLose.Lose.value
-    elif num1 == num2:
-        return WinOrLose.Draw.value
+def player_vs_computer(player, computer): #플레이어 승패 결정 함수
+    if (player == '가위' and computer == '보') | (player == '바위' and computer == '가위') | (player == '보' and computer == '바위'):
+        return 'win'
+    elif player == computer:
+        return 'draw'
+    else:
+        return 'lose'
 
 def game_continue(): #게임을 계속할건지 물어보는 함수
     choice = input('다시 하시겠습니까? (Y/N) ')
@@ -34,32 +28,26 @@ draw_count = 0
 print('-----------가위바위보 게임 입니다-----------')
 while True:
     while True: #플레이어 가위바위보 선택
-        player = input("가위 바위 보를 선택하세요 : ")
-        if player == "바위":
-            player = 0
-            break
-        elif player == "보":
-            player = 1
-            break
-        elif player == "가위":
-            player = 2
+        player_choice = input("가위 바위 보를 선택하세요 : ")
+        if player_choice == "바위" or player_choice == "보" or player_choice == "가위":
             break
         else:
             print("가위, 바위, 보 중에서 입력해야 합니다")
-    computer = randint(0, 2) # 주먹은 0, 보는 1, 가위는 2
-    if player_vs_computer(player, computer) == WinOrLose.Win.value:
+
+    computer_choice = choice(['가위', '바위', '보'])
+    if player_vs_computer(player_choice, computer_choice) == 'win':
         win_count += 1
         print("플레이어 WIN")
-    elif player_vs_computer(player, computer) == WinOrLose.Lose.value:
-        lose_count += 1
-        print("컴퓨터 WIN")
-    else:
+    elif player_vs_computer(player_choice, computer_choice) == 'draw':
         draw_count += 1
         print("비겼습니다")
-    player_choice = game_continue()
-    if player_choice == 0:
+    else:
+        lose_count += 1
+        print("컴퓨터 WIN")
+    game = game_continue()
+    if game == 0:
         break
-    elif player_choice == 1:
+    elif game == 1:
         continue
 
 print("게임을 종료합니다.")
