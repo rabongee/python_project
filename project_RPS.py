@@ -9,17 +9,17 @@ def player_vs_computer(player, computer): #플레이어 승패 결정 함수
         return 'lose'
 
 def game_continue(): #게임을 계속할건지 물어보는 함수
-    choice = input('다시 하시겠습니까? (Y/N) ')
-    choice = choice.upper()
-    if choice != 'Y' and choice != 'N':
+    replay = input('다시 하시겠습니까? (Y/N) ')
+    replay = replay.upper()
+    if replay != 'Y' and replay != 'N':
         while True:
-            choice = input('Y나 N만 입력해주세요. (Y/N) ')
-            choice = choice.upper()
-            if choice == 'Y' or choice == 'N':
+            replay = input('Y나 N만 입력해주세요. (Y/N) ')
+            replay = replay.upper()
+            if replay == 'Y' or replay == 'N':
                 break
-    if choice == 'N':
+    if replay == 'N':
         return 0
-    elif choice == 'Y':
+    elif replay == 'Y':
         return 1
 
 win_count = 0
